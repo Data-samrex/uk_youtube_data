@@ -239,7 +239,7 @@ FROM
 */
 
 -- 1.
-CREATE VIEW view_uk_youtubers_2024 AS
+CREATE VIEW view_uk_youtube_data AS
 
 -- 2.
 SELECT
