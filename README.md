@@ -46,7 +46,7 @@ The Head of Marketing wants to find out who the top YouTubers are in 2024 to dec
 
 - What is the ideal solution? 
 
-To create a dashboard that provides insights into the top UK YouTubers in 2024 that includes their 
+To create a dashboard that provides insights into the top UK YouTubers in 2024 that including their 
 - subscriber count
 - total views
 - total videos, and
@@ -56,7 +56,7 @@ This will help the marketing team make informed decisions about which YouTubers 
 
 ## User story 
 
-As the Head of Marketing, I want to use a dashboard that analyses YouTube channel data in the UK . 
+As the Head of Marketing, I want to use a dashboard that analyses YouTube channel data in the UK. 
 
 This dashboard should allow me to identify the top performing channels based on metrics like subscriber base and average views. 
 
@@ -82,7 +82,7 @@ The data is sourced from Kaggle (an Excel extract), [see here to find it.](https
 # Stages
 
 - Design
-- Developement
+- Development
 - Testing
 - Analysis 
  
@@ -152,7 +152,7 @@ Some of the data visuals that may be appropriate in answering our questions incl
 
 ## Data exploration notes
 
-This is the stage where you have a scan of what's in the data, errors, inconcsistencies, bugs, weird and corrupted characters etc  
+This is the stage where you have a scan of what's in the data, errors, inconsistencies, bugs, weird and corrupted characters etc  
 
 
 - What are your initial observations with this dataset? What's caught your attention so far? 
@@ -167,7 +167,7 @@ This is the stage where you have a scan of what's in the data, errors, inconcsis
 
 
 ## Data cleaning 
-- What do we expect the clean data to look like? (What should it contain? What contraints should we apply to it?)
+- What do we expect the clean data to look like? (What should it contain? What constraints should we apply to it?)
 
 The aim is to refine our dataset to ensure it is structured and ready for analysis. 
 
@@ -184,7 +184,7 @@ Below is a table outlining the constraints on our cleaned dataset:
 | Number of Rows | 100 |
 | Number of Columns | 4 |
 
-And here is a tabular representation of the expected schema for the clean data:
+Here is a tabular representation of the expected schema for the clean data:
 
 | Column Name | Data Type | Nullable |
 | --- | --- | --- |
@@ -363,7 +363,7 @@ This shows the Top UK Youtubers in 2024 so far.
 ```sql
 Total Subscribers (M) = 
 VAR million = 1000000
-VAR sumOfSubscribers = SUM(view_uk_youtubers_2024[total_subscribers])
+VAR sumOfSubscribers = SUM(view_uk_youtube_data[total_subscribers])
 VAR totalSubscribers = DIVIDE(sumOfSubscribers,million)
 
 RETURN totalSubscribers
@@ -374,7 +374,7 @@ RETURN totalSubscribers
 ```sql
 Total Views (B) = 
 VAR billion = 1000000000
-VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
+VAR sumOfTotalViews = SUM(view_uk_youtube_data[total_views])
 VAR totalViews = ROUND(sumOfTotalViews / billion, 2)
 
 RETURN totalViews
@@ -384,7 +384,7 @@ RETURN totalViews
 ### 3. Total Videos
 ```sql
 Total Videos = 
-VAR totalVideos = SUM(view_uk_youtubers_2024[total_videos])
+VAR totalVideos = SUM(view_uk_youtube_data[total_videos])
 
 RETURN totalVideos
 
@@ -393,8 +393,8 @@ RETURN totalVideos
 ### 4. Average Views Per Video (M)
 ```sql
 Average Views per Video (M) = 
-VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
-VAR sumOfTotalVideos = SUM(view_uk_youtubers_2024[total_videos])
+VAR sumOfTotalViews = SUM(view_uk_youtube_data[total_views])
+VAR sumOfTotalVideos = SUM(view_uk_youtube_data[total_videos])
 VAR  avgViewsPerVideo = DIVIDE(sumOfTotalViews,sumOfTotalVideos, BLANK())
 VAR finalAvgViewsPerVideo = DIVIDE(avgViewsPerVideo, 1000000, BLANK())
 
@@ -406,8 +406,8 @@ RETURN finalAvgViewsPerVideo
 ### 5. Subscriber Engagement Rate
 ```sql
 Subscriber Engagement Rate = 
-VAR sumOfTotalSubscribers = SUM(view_uk_youtubers_2024[total_subscribers])
-VAR sumOfTotalVideos = SUM(view_uk_youtubers_2024[total_videos])
+VAR sumOfTotalSubscribers = SUM(view_uk_youtube_data[total_subscribers])
+VAR sumOfTotalVideos = SUM(view_uk_youtube_data[total_videos])
 VAR subscriberEngRate = DIVIDE(sumOfTotalSubscribers, sumOfTotalVideos, BLANK())
 
 RETURN subscriberEngRate 
@@ -418,8 +418,8 @@ RETURN subscriberEngRate
 ### 6. Views per subscriber
 ```sql
 Views Per Subscriber = 
-VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
-VAR sumOfTotalSubscribers = SUM(view_uk_youtubers_2024[total_subscribers])
+VAR sumOfTotalViews = SUM(view_uk_youtube_data[total_views])
+VAR sumOfTotalSubscribers = SUM(view_uk_youtube_data[total_subscribers])
 VAR viewsPerSubscriber = DIVIDE(sumOfTotalViews, sumOfTotalSubscribers, BLANK())
 
 RETURN viewsPerSubscriber 
@@ -484,7 +484,7 @@ Here are the key questions we need to answer for our marketing client:
 
 ### 4. Which 3 channels have the highest average views per video?
 
-| Channel Name | Averge Views per Video (M) |
+| Channel Name | Average Views per Video (M) |
 |--------------|-----------------|
 | Mark Ronson  | 32.27           |
 | Jessie J     | 5.97            |
@@ -514,7 +514,7 @@ Here are the key questions we need to answer for our marketing client:
 
 ### Notes
 
-For this analysis, we'll prioritize analysing the metrics that are important in generating the expected ROI for our marketing client, which are the YouTube channels wuth the most 
+For this analysis, we'll prioritize analysing the metrics that are important in generating the expected ROI for our marketing client, which are the YouTube channels with the most 
 
 - subscribers
 - total views
@@ -811,9 +811,9 @@ ORDER BY
 We discovered that 
 
 
-1. NoCopyrightSOunds, Dan Rhodes and DanTDM are the channnels with the most subscribers in the UK
+1. NoCopyrightSounds, Dan Rhodes and DanTDM are the channels with the most subscribers in the UK
 2. GRM Daily, Man City and Yogscast are the channels with the most videos uploaded
-3. DanTDM, Dan RHodes and Mister Max are the channels with the most views
+3. DanTDM, Dan Rhodes and Mister Max are the channels with the most views
 4. Entertainment channels are useful for broader reach, as the channels posting consistently on their platforms and generating the most engagement are focused on entertainment and music 
 
 
