@@ -225,7 +225,7 @@ SELECT
     total_videos
 
 FROM
-    top_uk_youtubers_2024
+    youtube_data
 ```
 
 
@@ -250,7 +250,7 @@ SELECT
 
 -- 3.
 FROM
-    top_uk_youtubers_2024
+    view_uk_youtube_data
 
 ```
 
@@ -270,7 +270,7 @@ Here are the data quality tests conducted:
 SELECT
     COUNT(*) AS no_of_rows
 FROM
-    view_uk_youtubers_2024;
+    view_uk_youtube_data
 
 ```
 
@@ -291,7 +291,7 @@ SELECT
 FROM
     INFORMATION_SCHEMA.COLUMNS
 WHERE
-    TABLE_NAME = 'view_uk_youtubers_2024'
+    TABLE_NAME = 'view_uk_youtube_data'
 ```
 ### Output 
 ![Column count check](assets/images/2_column_count_check.png)
@@ -312,7 +312,7 @@ SELECT
 FROM
     INFORMATION_SCHEMA.COLUMNS
 WHERE
-    TABLE_NAME = 'view_uk_youtubers_2024';
+    TABLE_NAME = 'view_uk_youtube_data';
 ```
 ### Output
 ![Data type check](assets/images/3_data_type_check.png)
@@ -332,7 +332,7 @@ SELECT
     channel_name,
     COUNT(*) AS duplicate_count
 FROM
-    view_uk_youtubers_2024
+    view_uk_youtube_data
 
 -- 2.
 GROUP BY
@@ -588,7 +588,7 @@ WITH ChannelData AS (
         total_videos,
         ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
     FROM 
-        youtube_db.dbo.view_uk_youtubers_2024
+        youtube_db.dbo.view_uk_youtube_data
 )
 
 -- 3. 
@@ -678,7 +678,7 @@ WITH ChannelData AS (
         total_videos,
         ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
     FROM
-        youtube_db.dbo.view_uk_youtubers_2024
+        youtube_db.dbo.view_uk_youtube_data
 )
 
 
@@ -772,7 +772,7 @@ WITH ChannelData AS (
         total_videos,
         ROUND(CAST(total_views AS FLOAT) / total_videos, -4) AS avg_views_per_video
     FROM
-        youtube_db.dbo.view_uk_youtubers_2024
+        youtube_db.dbo.view_uk_youtube_data
 )
 
 
@@ -814,17 +814,17 @@ We discovered that
 1. NoCopyrightSOunds, Dan Rhodes and DanTDM are the channnels with the most subscribers in the UK
 2. GRM Daily, Man City and Yogscast are the channels with the most videos uploaded
 3. DanTDM, Dan RHodes and Mister Max are the channels with the most views
-4. Entertainment channels are useful for broader reach, as the channels posting consistently on their platforms and generating the most engagement are focus on entertainment and music 
+4. Entertainment channels are useful for broader reach, as the channels posting consistently on their platforms and generating the most engagement are focused on entertainment and music 
 
 
 
 
 ## Recommendations 
 
-- What do you recommend based on the insights gathered? 
+- What do you think you could recommend based on the insights gathered? 
   
-1. Dan Rhodes is the best YouTube channel to collaborate with if we want to maximize visbility because this channel has the most YouTube subscribers in the UK
-2. Although GRM Daily, Man City and Yogcasts are regular publishers on YouTube, it may be worth considering whether collaborating with them with the current budget caps are worth the effort, as the potential return on investments is significantly lower compared to the other channels.
+1. Dan Rhodes is the best YouTube channel to collaborate with if we want to maximize visibility because this channel has the most YouTube subscribers in the UK
+2. Although GRM Daily, Man City and Yogcasts are regular publishers on YouTube, it may be worth considering whether collaborating with them with the current budget caps is worth the effort, as the potential return on investments is significantly lower compared to the other channels.
 3. Mister Max is the best YouTuber to collaborate with if we're interested in maximizing reach, but collaborating with DanTDM and Dan Rhodes may be better long-term options considering the fact that they both have large subscriber bases and are averaging significantly high number of views.
 4. The top 3 channels to form collaborations with are NoCopyrightSounds, DanTDM and Dan Rhodes based on this analysis, because they attract the most engagement on their channels consistently.
 
@@ -843,9 +843,9 @@ We discovered that
 ### Action plan
 - What course of action should we take and why?
 
-Based on our analysis, we beieve the best channel to advance a long-term partnership deal with to promote the client's products is the Dan Rhodes channel. 
+Based on our analysis, we believe the best channel to advance a long-term partnership deal with to promote the client's products is the Dan Rhodes channel. 
 
-We'll have conversations with the marketing client to forecast what they also expect from this collaboration. Once we observe we're hitting the expected milestones, we'll advance with potential partnerships with DanTDM, Mister Max and NoCopyrightSounds channels in the future.   
+We'll have conversations with the marketing client to forecast what they expect from this collaboration. Once we observe we're hitting the expected milestones, we'll advance with potential partnerships with DanTDM, Mister Max and NoCopyrightSounds channels in the future.   
 
 - What steps do we take to implement the recommended decisions effectively?
 
