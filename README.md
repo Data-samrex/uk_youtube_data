@@ -264,7 +264,7 @@ Here are the data quality tests conducted:
 ## Row count check
 ```sql
 /*
-# Count the total number of records (or rows) are in the SQL view
+# Count the total number of records (or rows) in the SQL view
 */
 
 SELECT
@@ -282,7 +282,7 @@ FROM
 ### SQL query 
 ```sql
 /*
-# Count the total number of columns (or fields) are in the SQL view
+# Count the total number of columns (or fields) in the SQL view
 */
 
 
@@ -352,7 +352,7 @@ HAVING
 
 - What does the dashboard look like?
 
-![GIF of Power BI Dashboard](assets/images/top_uk_youtubers_2024.gif)
+![GIF of Power BI Dashboard](assets/images/top_uk_youtubers_2024...gif)
 
 This shows the Top UK Youtubers in 2024 so far. 
 
